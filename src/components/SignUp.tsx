@@ -9,7 +9,7 @@ const SignUp = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleRegister = (email, password) => {
+    const handleRegister = (email: string, password:string) => {
         const auth = getAuth();
         console.log(auth)
         createUserWithEmailAndPassword(auth, email, password)
@@ -18,7 +18,7 @@ const SignUp = () => {
                 dispatch(setUser({
                     email: user.email,
                     id: user.uid,
-                    token: user.accessToken,
+                    token: user.refreshToken,
                 }));
                 navigate('/')
             })

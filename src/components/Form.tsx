@@ -1,8 +1,17 @@
 import React from 'react';
-import {useState} from "react";
+import {FC, useState} from "react";
 import styles from './Form.module.css'
 
-const Form = ({title, handleClick, link, actiontype, titleActionText, greetingAction}) => {
+interface FormProps {
+    title: string;
+    handleClick: (email: string, pass: string) => void;
+    link: string;
+    actiontype: string;
+    titleActionText: string;
+    greetingAction: string
+}
+
+const Form: FC<FormProps> = ({title, handleClick, link, actiontype, titleActionText, greetingAction}) => {
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('')
 
